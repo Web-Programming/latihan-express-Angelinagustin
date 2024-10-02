@@ -1,0 +1,37 @@
+<%- include('master', { title: 'Detail Pemesanan' }) %>
+
+<header>
+    <h1>Detail Pemesanan Paket Wisata</h1>
+</header>
+
+<div class="container">
+    <h2>Informasi Pemesanan</h2>
+
+    <div class="order-summary">
+        <h3>Paket yang Dipesan</h3>
+        <div class="package">
+            <h4><%= package.name %></h4>
+            <img src="<%= package.image %>" alt="<%= package.name %>">
+            <p><%= package.description %></p>
+            <p><strong>Harga: Rp <%= package.price.toLocaleString() %></strong></p>
+        </div>
+
+        <h3>Data Pemesan</h3>
+        <ul>
+            <li><strong>Nama Lengkap:</strong> <%= name %></li>
+            <li><strong>Email:</strong> <%= email %></li>
+            <li><strong>Nomor Telepon:</strong> <%= phone %></li>
+            <li><strong>Tanggal Pemesanan:</strong> <%= date %></li>
+            <li><strong>Jumlah Peserta:</strong> <%= participants %></li>
+        </ul>
+
+        <h3>Total Biaya</h3>
+        <p><strong>Rp <%= (package.price * participants).toLocaleString() %></strong></p>
+    </div>
+
+    <button onclick="window.location.href='/order'">Pesan Lagi</button>
+</div>
+
+<footer class="footer">
+    <p>&copy; 2024 Paket Wisata. Semua Hak Dilindungi.</p>
+</footer>
