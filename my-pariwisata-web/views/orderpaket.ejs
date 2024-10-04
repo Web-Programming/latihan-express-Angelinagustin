@@ -1,49 +1,14 @@
-<%- include('master', { title: 'Order Paket Wisata' }) %>
-
-<header>
-    <h1>Pemesanan Paket Wisata</h1>
-</header>
-
-<div class="container">
-    <h2>Paket yang Anda Pesan</h2>
-    <div class="package">
-        <h3><%= package.name %></h3>
-        <img src="<%= package.image %>" alt="<%= package.name %>">
-        <p><%= package.description %></p>
-        <p><strong>Harga: Rp <%= package.price.toLocaleString() %></strong></p>
-    </div>
-
-    <h2>Form Pemesanan</h2>
-    <form action="/submit-order" method="POST">
-        <div class="form-group">
-            <label for="name">Nama Lengkap:</label>
-            <input type="text" id="name" name="name" required>
-        </div>
-
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-
-        <div class="form-group">
-            <label for="phone">Nomor Telepon:</label>
-            <input type="tel" id="phone" name="phone" required>
-        </div>
-
-        <div class="form-group">
-            <label for="date">Tanggal Pemesanan:</label>
-            <input type="date" id="date" name="date" required>
-        </div>
-
-        <div class="form-group">
-            <label for="participants">Jumlah Peserta:</label>
-            <input type="number" id="participants" name="participants" min="1" required>
-        </div>
-
-        <button type="submit">Pesan Sekarang</button>
-    </form>
-</div>
-
-<footer class="footer">
-    <p>&copy; 2024 Paket Wisata. Semua Hak Dilindungi.</p>
-</footer>
+<%- include('master', { 
+    title: title,
+    body: `<h1> order paket </h1> 
+    <p>....</p>
+    `
+    }) 
+%>
+<% formulirpesanan.forEach(element => { %>
+    <li>
+        <%= paket.namapesanan%> :<%= paket.email%> :<%= paket.noHp%> :<%= paket.tglpesanan%>
+    </li>
+    <%
+})
+%>
