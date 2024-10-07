@@ -1,7 +1,14 @@
-<%- include('master', { 
+<% include('master', {
     title: title,
-    body: `<h1> order detail </h1> 
-    <p>....</p>
-    `
-    }) 
+    body: `
+      <h1>Detail Pemesanan Paket</h1>
+      <p>
+        Nama Pemesan: ${orderDetails.namapesanan} <br>
+        Email: ${orderDetails.email} <br>
+        No. HP: ${orderDetails.noHP} <br>
+        Tanggal Pesanan: ${orderDetails.tglPesanan} <br>
+      </p
+      `
+    })
+
 %>

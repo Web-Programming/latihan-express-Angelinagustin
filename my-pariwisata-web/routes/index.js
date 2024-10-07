@@ -14,7 +14,7 @@ router.get('/paketwisata',function (req, res, next){
   ]
   res.render('paketwisata', {
     title:'Paket Wisata',
-    listpaketwisata: listpaketwisata});
+    listpaketwisata: paketwisata});
 });
 
 router.get('/orderpaket',function (req, res, next){
@@ -26,7 +26,7 @@ router.get('/orderpaket',function (req, res, next){
   ]
   res.render('orderpaket', {
     title:'Form Pemesanan Paket',
-    formulirpesanan :formulirpesanan
+    formulirpesanan : orderpaket[0]
   });
 });
 
