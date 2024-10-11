@@ -1,14 +1,37 @@
-<%- include('master', { 
-    title: title,
-    body: `<h1> order paket </h1> 
-    <p>....</p>
-    `
-    }) 
-%>
-<% formulirpesanan.forEach(element => { %>
-    <li>
-        <%= paket.namapesanan%> :<%= paket.email%> :<%= paket.noHp%> :<%= paket.tglpesanan%>
-    </li>
-    <%
-})
-%>
+<!-- orderpaket.ejs -->
+<%- include('master', { title: 'Order Paket', body: `
+  <h1>Order Paket Wisata</h1>
+  <p>Silakan isi form di bawah ini untuk memesan paket wisata.</p>
+
+  <form>
+    <div class="form-group">
+      <label for="nama">Nama</label>
+      <input type="text" class="form-control" id="nama" placeholder="Nama">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" placeholder="Email">
+    </div>
+    <div class="form-group">
+      <label for="no_hp">No. HP</label>
+      <input type="text" class="form-control" id="no_hp" placeholder="No. HP">
+    </div>
+    <div class="form-group">
+      <label for="paket">Paket Wisata</label>
+      <select class="form-control" id="paket">
+        <option value="paket1">Paket Wisata 1</option>
+        <option value="paket2">Paket Wisata 2</option>
+        <option value="paket3">Paket Wisata 3</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="tanggal">Tanggal</label>
+      <input type="date" class="form-control" id="tanggal" placeholder="Tanggal">
+    </div>
+    <div class="form-group">
+      <label for="jumlah_orang">Jumlah Orang</label>
+      <input type="number" class="form-control" id="jumlah_orang" placeholder="Jumlah Orang">
+    </div>
+    <button type="submit" class="btn btn-primary">Pesan Sekarang</button>
+  </form>
+` }) %>

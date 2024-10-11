@@ -18,16 +18,7 @@ router.get('/paketwisata',function (req, res, next){
 });
 
 router.get('/orderpaket',function (req, res, next){
-  let orderpaket= [
-    {'namapesanan' : 'budi',
-      'email' :'budi123@gmail.com', 
-      'noHP': '09293', 
-      'tglPesanan':'10 April 2024'},
-  ]
-  res.render('orderpaket', {
-    title:'Form Pemesanan Paket',
-    formulirpesanan : orderpaket[0]
-  });
+  res.render('orderpaket', {title:'Form Pemesanan Paket'});
 });
 
 router.post('/orderdetail',function (req, res, next){

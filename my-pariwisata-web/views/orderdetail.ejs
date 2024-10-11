@@ -1,14 +1,36 @@
-<% include('master', {
-    title: title,
-    body: `
-      <h1>Detail Pemesanan Paket</h1>
-      <p>
-        Nama Pemesan: ${orderDetails.namapesanan} <br>
-        Email: ${orderDetails.email} <br>
-        No. HP: ${orderDetails.noHP} <br>
-        Tanggal Pesanan: ${orderDetails.tglPesanan} <br>
-      </p
-      `
-    })
+<!-- orderdetail.ejs -->
+<%- include('master', { title: 'Order Detail', body: `
+  <h1>Order Detail</h1>
+  <p>Detail order Anda:</p>
 
-%>
+  <table class="table">
+    <tr>
+      <th>Nama</th>
+      <td><%= nama %></td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td><%= email %></td>
+    </tr>
+    <tr>
+      <th>No. HP</th>
+      <td><%= no_hp %></td>
+    </tr>
+    <tr>
+      <th>Paket Wisata</th>
+      <td><%= paket %></td>
+    </tr>
+    <tr>
+      <th>Tanggal</th>
+      <td><%= tanggal %></td>
+    </tr>
+    <tr>
+      <th>Jumlah Orang</th>
+      <td><%= jumlah_orang %></td>
+    </tr>
+  </table>
+
+  <p>Total biaya: Rp <%= total_biaya %></p>
+
+  <button class="btn btn-primary">Konfirmasi Pembayaran</button>
+` }) %>
