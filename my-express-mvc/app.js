@@ -27,7 +27,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 // tgl 18
 app.use('/api', mahasiswasRouter);
-//nm
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
