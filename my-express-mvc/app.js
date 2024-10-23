@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 // tgl 18
-app.use('/api', mahasiswasRouter);
+app.use('/api/mahasiswas', mahasiswasRouter);
 
 
 // catch 404 and forward to error handler
