@@ -22,7 +22,7 @@ const mahasiswaSchema = new mongoose.Schema({
 
     aktif:{
         type: Boolean,
-    },
+    }
 });
 
 const Mahasiswa = mongoose.model("Mahasiswa", mahasiswaSchema);
