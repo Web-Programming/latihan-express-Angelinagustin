@@ -5,7 +5,7 @@ import { HousingLocation } from './housing-location';
   providedIn: 'root'
 })
 export class HousingService {
-  url = 'https://localhost:3000/housing';
+  url = "https://localhost:3000/housing";
 
   constructor() { }
 
@@ -15,7 +15,7 @@ export class HousingService {
   }
 
   async getHousingLocationById(id: Number) : Promise<HousingLocation | undefined>{
-    const data = await fetch('${this.url}/${id}'); //https://localhost:3000/housing/1
+    const data = await fetch(`${this.url}/${id}`); //https://localhost:3000/housing/1
     return await data.json() ?? {};
   }
 
