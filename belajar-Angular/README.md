@@ -87,3 +87,16 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+selesaikan component detail sehingga dapat menampilkan data housing location dari API 
+- buat route / housing/{id} yang menerima parameter id untuk mendapatkan data housing dari mongo db berdasarkan id yang dikirim 
+- buat model untuk data register (apply housing) dengan property/ fielsd firstName, lastName dan email
+- tentukan controller dan routes untuk menyimpan/ insert data registrassi. pastikan route daoat diakses dan digunakan untuk menginsert data ke monggo db 
+- selesaikan methid submitApplication() pada service housing dengan memanggil API insert/ register menggunakan fungsi HTTP fetch dengan methode post. pastikan fitur appy to live here dapat berjalan hingga data dapat tersimpan ke monggo db 
+
+contoh pengunaan fetch dengan methode POST:
+contoh data = fect (apiurl, 
+{
+  methode :'POST',
+  data :JSON.stingify ({nama: "Rachmat", npm : "00000001"})
+});
