@@ -10,7 +10,7 @@ var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
 // tgl 18
 var mhsRouter = require('./app_server/routes/mahasiswa');
-var housingRouter = require('./app_server/routes/housing');
+var hsRouter = require('./app_server/routes/housing');
 //
 var app = express();
 
@@ -28,7 +28,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 // tgl 18
 app.use('/api/mahasiswas', mhsRouter);
-app.use('/housing', housingRouter);
+app.use('/housing', hsRouter);
 
 
 // catch 404 and forward to error handler
