@@ -8,7 +8,7 @@ import { HousingService } from '../housing.service';
   standalone: true,
   imports: [CommonModule, HousingLocationComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
   housingLocationList: HousingLocation[] = [];
@@ -16,7 +16,7 @@ export class HomeComponent {
 
   constructor(){
     this.housingService.getAllHousingLocations()
-    .then((listData: HousingLocation[])=>{
+    .then((listData: HousingLocation[]) =>{
       this.housingLocationList = listData;
     });
   }

@@ -1,5 +1,5 @@
 const express = require ("express");
 const router = express.Router();
-const hsController = require("../controllers/controllersHousing");
-router.get("/", hsController.Index);
+const housingController = require("../controllers/controllersHousing");
+router.get("/", housingController.Index);
 module.exports= router;
