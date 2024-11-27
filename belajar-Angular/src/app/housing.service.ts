@@ -19,8 +19,18 @@ export class HousingService {
     return await data.json() ?? {};
   }
 
-  submitApplication(firstName: String, lastName: String,
-    email: String){
-      console.log(firstName, lastName, email);
+  async submitApplication(firstName: string, lastName: string, email: string): Promise<void> {
+    const response = await fetch(`${this.url}/apply`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ firstName, lastName, email }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to submit application');
+    }
+    console.log('Application submitted:', await response.json());
   }
 }

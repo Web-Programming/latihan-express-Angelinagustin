@@ -47,27 +47,36 @@ export class DetailsComponent {
   housingLocationId = 0;
   housingService: HousingService = inject(HousingService);
   housingLocation: HousingLocation | undefined
-  applyForm: FormGroup = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    email: new FormControl('')
-  })
+  applyForm: FormGroup ;
 
-  constructor(){
+
+  constructor() {
+    this.applyForm = new FormGroup({
+      firstName: new FormControl(''),
+      lastName: new FormControl(''),
+      email: new FormControl('')
+    });
+
     this.housingLocationId = Number(this.route.snapshot.params['id']);
-    this.housingService.getHousingLocationById(this.housingLocationId)
-      .then(location => {
-        this.housingLocation = location;
-      })
-    console.table(this.housingLocation)
+    this.loadHousingLocation();
   }
 
-  submitApplyForm(){
-    //panggil API simpan data registarsi via service
-    this.housingService.submitApplication(
-      this.applyForm.value.firstName ?? '',
-      this.applyForm.value.lastName ?? '',
-      this.applyForm.value.email ?? '',
-    )
+  async loadHousingLocation() {
+    this.housingLocation = await this.housingService.getHousingLocationById(this.housingLocationId);
+  }
+
+  async submitApplyForm() {
+    try {
+      await this.housingService.submitApplication(
+        this.applyForm.value.firstName,
+        this.applyForm.value.lastName,
+        this.applyForm.value.email
+      );
+      alert('Application submitted successfully!');
+      this.applyForm.reset();
+    } catch (error) {
+      console.error('Error submitting application:', error);
+      alert('Failed to submit application.');
+    }
   }
 }
