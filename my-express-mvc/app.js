@@ -3,8 +3,15 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+
+// untuk memanggil dependeni dotenv
+require('dotenv').config();
+
 // connection pada db mongoose 
 require('./app_server/models/db');
+
+//  memanggil module passport 
+require("./app_server/configs/passport"); //load file config
 
 var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');

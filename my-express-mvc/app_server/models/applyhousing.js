@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const registerSchema = new mongoose.Schema({
+const applySchema = new mongoose.Schema({
     firstName: {
         type: String,
     },
@@ -13,6 +13,6 @@ const registerSchema = new mongoose.Schema({
 
 });
 
-const Register = mongoose.model('Register', registerSchema);
+const Applyhousing = mongoose.model('Applyhousing', applySchema);
 
-module.exports = Register;
+module.exports = Applyhousing;
