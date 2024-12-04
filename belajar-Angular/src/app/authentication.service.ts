@@ -6,10 +6,16 @@ import { Auth } from './auth';
   providedIn: 'root'
 })
 export class AuthenticationService {
+  [x: string]: any;
 
   constructor() { }
   url = "http://localhost:3000";
   async submitRegister(registerdata : FormGroup) : Promise<Auth>{
+    // const input ={
+    //   name: registerdata.value.name,
+    //   email: registerdata.value.email,
+    //   password: registerdata.value.password,
+    // }
   const data = await fetch(`${this.url}/users/register`, {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },

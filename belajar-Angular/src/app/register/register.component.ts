@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
+import { Router } from 'express';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-register',
@@ -46,7 +48,7 @@ export class RegisterComponent {
       if(res.message != null){
         this.formError = res.message;
       }else if(res.token !=null){
-        this.authService.saveToken(res.token);
+        //this.authService['saveToken'](res.token);
         this.router.navigateByUrl('/');
       }else{
         this.formError = 'Register failed please try again';

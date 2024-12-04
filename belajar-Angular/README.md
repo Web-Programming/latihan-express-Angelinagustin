@@ -40,7 +40,12 @@ ng g c HousingLocation --standalone --inline-template
 ```bash
 ng g c details --standalone --inline-template
 ```
-
+```bash
+ng g c login
+```
+```bash
+ng g c register
+```
 ```bash
 ng generate --help
 ```
@@ -54,6 +59,13 @@ ng g i HousingLocation
 ## Membuat service
 ```bash
 ng g s housing
+```
+
+```bash
+ng g s authentication
+```
+```bash
+ng g i storage
 ```
 
 ## Building
