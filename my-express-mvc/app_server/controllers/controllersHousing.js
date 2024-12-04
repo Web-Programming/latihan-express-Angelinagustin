@@ -1,4 +1,4 @@
-const Register = require('../models/register');
+const applyHousing = require('../models/register');
 
 const getHousingById = async (req, res) => {
   const { id } = req.params;
