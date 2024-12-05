@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
-import { Router } from 'express';
+import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 
 @Component({
@@ -14,11 +14,11 @@ import { AuthenticationService } from '../authentication.service';
 export class RegisterComponent {
   registerForm: FormGroup;
   formError: String ="";
-// 
+//   //Inject class Router dan service authentication
   router: Router = inject(Router);
   authService: AuthenticationService = inject (AuthenticationService);
 
-  //Inject class Router dan service authentication  
+  //Inject class Router dan service authentication
   constructor(private fb: FormBuilder){
      this.registerForm = this.fb.group({
       name: new FormControl('', [Validators.required, Validators.minLength(2)]),
@@ -29,7 +29,7 @@ export class RegisterComponent {
   get name() {
     return this.registerForm.get('name');
   }
-  
+
   get email() {
     return this.registerForm.get('email');
   }

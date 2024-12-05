@@ -1,31 +1,15 @@
-const applyHousing = require('../models/register');
+const Housing = require("../models/housing");
 
-const getHousingById = async (req, res) => {
-  const { id } = req.params;
-  try {
-    const housing = await HousingApplication.findById(id);
-    if (!housing) {
-      return res.status(404).json({ message: 'Housing not found' });
+const Index = async (req,res) => {
+    try {
+        const housing = await Housing.find({});
+        res.status(200).json(housing);
+        if(!housing){
+            res.status(400).json({message: "Collection is Empty"})
+        }
+    } catch (error) {
+        res.status(500).json({ message: "Error retrieving users", error});
     }
-    res.json(housing);
-  } catch (error) {
-    res.status(500).json({ message: 'Error retrieving housing', error });
-  }
-};
+}
 
-// Menyimpan data registrasi
-const submitApplication = async (req, res) => {
-  try {
-    const applicationData = new HousingApplication(req.body);
-    await applicationData.save();
-    res.status(201).json({ message: 'Application submitted successfully!' });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Error submitting application', error });
-  }
-};
-
-module.exports = {
-  getHousingById,
-  submitApplication,
-};
+module.exports = { Index }
