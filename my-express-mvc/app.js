@@ -17,7 +17,7 @@ var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
 var mhsRouter = require('./app_server/routes/mahasiswa');
 var housingRouter = require('./app_server/routes/housing');
-var apiRouter = require('./app_server/routes/api');
+
 //
 var app = express();
 app.use(cors())
@@ -41,7 +41,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api', mhsRouter);
 app.use('/housing', housingRouter);
-app.use('/api', apiRouter);
+
 
 
 // catch 404 and forward to error handler
