@@ -67,7 +67,9 @@ ng g s authentication
 ```bash
 ng g i storage
 ```
-
+```bash
+ng g cl user
+```
 ## Building
 
 To build the project run:
