@@ -8,16 +8,11 @@ import { User } from './user';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  [x: string]: any;
-
   constructor(@Inject(BROWSER_STORAGE) private storage: Storage) { }
+
   url = "http://localhost:3000";
+
   async submitRegister(registerdata : FormGroup) : Promise<Auth>{
-    // const input ={
-    //   name: registerdata.value.name,
-    //   email: registerdata.value.email,
-    //   password: registerdata.value.password,
-    // }
   const data = await fetch(`${this.url}/users/register`, {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
@@ -36,13 +31,38 @@ export class AuthenticationService {
     return await data.json() ?? {};
   }
 
-  //untuk menga,bil token 
+  //untuk menga,bil token
   public gettoken(): any{
     return this.storage.getItem('app-tokenm')
   }
-  // untuk menyimpan token 
+  // untuk menyimpan token
   public saveToken(token: string): void{
     this.storage.setItem('app-token', token);
+  }
+
+
+  public isLoggedIn(): boolean {
+    const token: string = this.gettoken();
+    if(token){
+      const payload =JSON.parse(atob(token.split('.')[1]));
+      return payload.exp >(Date.now()/1000);
+    }else{
+      return false;
+    }
+  }
+  //untuk kebutuhan logout
+  public logout(): void{
+    this.storage.removeItem("app-token");
+  }
+  //untuk mengabli info user
+  public getCurrentUser(): User | null {
+    if(this.isLoggedIn()){
+      const token = this.getToken();
+      const { email, name } = JSON.parse(atob(token.split('.')[1]));
+      return { email, name } as User;
+    }else{
+      return null;
+    }
   }
 
 }

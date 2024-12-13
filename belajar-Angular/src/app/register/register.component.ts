@@ -42,7 +42,7 @@ export class RegisterComponent {
     if (this.registerForm.valid) {
       const formData = this.registerForm.value;
 
-      console.log('Form submitted', formData);
+    console.log('Form submitted', formData);
     this.authService.submitRegister(this.registerForm)
     .then((res)=>{
       if(res.message != null){
@@ -57,7 +57,6 @@ export class RegisterComponent {
       //Panggil method submitRegister()
     } else {
       this.formError = 'All fields are required, please try again';
-      //console.log('Form is not valid');
     }
   }
 }
